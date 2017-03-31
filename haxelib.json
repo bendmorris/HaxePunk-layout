@@ -1,0 +1,13 @@
+{
+	"name": "HaxePunk-layout",
+	"url" : "http://haxepunk.com",
+	"license": "MIT",
+	"tags": ["flash", "game", "cpp", "openfl"],
+	"description": "Simple layout and UI library for HaxePunk.",
+	"version": "0.1.0",
+	"releasenote": "See CHANGELOG.md",
+	"contributors": ["bendmorris"],
+	"dependencies": {
+		"HaxePunk": ""
+	}
+}
