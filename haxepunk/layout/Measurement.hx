@@ -10,6 +10,8 @@ abstract Measurement(MeasurementData) from MeasurementData to MeasurementData
 {
 	@:from public static inline function fromFloat(v:Float) return new Measurement(v);
 
+	public static inline function percent(v:Float) return new Measurement(v, MeasurementType.Percent);
+
 	public function new(value:Float, unit:MeasurementType=MeasurementType.Pixels)
 	{
 		return cast {value: value, unit: unit};
