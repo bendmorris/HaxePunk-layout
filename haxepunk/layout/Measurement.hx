@@ -8,9 +8,12 @@ typedef MeasurementData = {
 @:forward(value, unit)
 abstract Measurement(MeasurementData) from MeasurementData to MeasurementData
 {
+	// preallocate whole percentages to avoid runtime allocations
+	static var _percent:Array<Measurement> = [for (i in 0 ... 101) new Measurement(i, MeasurementType.Percent)];
+
 	@:from public static inline function fromFloat(v:Float) return new Measurement(v);
 
-	public static inline function percent(v:Float) return new Measurement(v, MeasurementType.Percent);
+	public static inline function percent(v:Float) return (v % 1 == 0) ? _percent[Std.int(v)] : new Measurement(v, MeasurementType.Percent);
 
 	public function new(value:Float, unit:MeasurementType=MeasurementType.Pixels)
 	{
