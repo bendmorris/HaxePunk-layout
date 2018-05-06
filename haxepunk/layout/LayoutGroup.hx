@@ -133,12 +133,16 @@ class LayoutGroup extends EntityList<Entity>
 		if (layoutWidth != null)
 		{
 			width = Std.int(layoutWidth.measure(parentWidth));
+			paddingLeft = this.paddingLeft.measure(width);
+			paddingRight = this.paddingRight.measure(width);
 			availableWidth = width - paddingLeft - paddingRight;
 			if (wraps != null) wraps.width = Std.int(availableWidth);
 		}
 		if (layoutHeight != null)
 		{
 			height = Std.int(layoutHeight.measure(parentHeight));
+			paddingTop = this.paddingTop.measure(height);
+			paddingBottom = this.paddingBottom.measure(height);
 			availableHeight = height - paddingTop - paddingBottom;
 			if (wraps != null) wraps.height = Std.int(availableHeight);
 		}
